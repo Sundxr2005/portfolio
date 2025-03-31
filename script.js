@@ -76,53 +76,23 @@ document.addEventListener("DOMContentLoaded", () => {
     const textContent1 = "I’m Jebarson, a passionate Cybersecurity Enthusiast with a strong focus on Bug Hunting and Vulnerability Assessment. My journey in cybersecurity began in early 2020, driven by a keen interest in tackling the growing digital security challenges.";
     const textContent2 = "Currently, in my second year of pursuing a B.Tech in Cyber Security at SRM IST, I’ve had the privilege of applying my skills to help secure numerous high-profile organizations, strengthening their digital defenses against emerging threats.";
 
-    let isTyping = false;
-    let isResetting = false;
-
     const observer = new IntersectionObserver(entries => {
         entries.forEach(entry => {
-            if (entry.isIntersecting && !isTyping) {
+            if (entry.isIntersecting) {
                 aboutSection.classList.add("active");
                 aboutSection.classList.remove("inactive");
-                isTyping = true;
-                isResetting = false;
-                typeWriter(text1, textContent1, () => {
-                    typeWriter(text2, textContent2);
-                });
-            } else if (!entry.isIntersecting && !isResetting) {
+                text1.innerHTML = textContent1;
+                text2.innerHTML = textContent2;
+            } else {
                 aboutSection.classList.remove("active");
                 aboutSection.classList.add("inactive");
-                isTyping = false;
-                isResetting = true;
-                resetText(text1);
-                resetText(text2);
+                text1.innerHTML = "";
+                text2.innerHTML = "";
             }
         });
     }, { threshold: 0.5 });
 
     observer.observe(aboutSection);
-
-    function typeWriter(element, text, callback) {
-        element.innerHTML = ""; // Clear previous text
-        let i = 0;
-    
-        function writeText() {
-            if (i < text.length) {
-                element.innerHTML = text.substring(0, i + 1);
-                i++;
-                setTimeout(writeText, 30); // Typing speed
-            } else {
-                element.style.borderRight = "none"; // Remove cursor after typing
-                if (callback) setTimeout(callback, 500); // Delay before next paragraph
-            }
-        }
-        writeText();
-    }
-    
-
-    function resetText(element) {
-        element.innerHTML = ""; // Reset cursor
-    }
 });
 document.addEventListener("DOMContentLoaded", function () {
     const counters = document.querySelectorAll(".count");

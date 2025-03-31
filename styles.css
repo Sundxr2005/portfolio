@@ -247,19 +247,19 @@ p {
 /* About Section */
 .about-section {
     text-align: center;
-    padding: 60px 100px;
+    padding: 60px 190px;
     display: flex;
     flex-direction: column;
-    align-items: center;
     opacity: 0;
     transition: opacity 0.5s ease-in-out;
+    align-items: flex-start;
 }
 
 /* About Header */
 .about-header {
     display: flex;
     align-items: center;  /* Keep items aligned horizontally */
-    justify-content: center;
+    justify-content: flex-start;
     gap: 20px;
     position: relative; /* Ensure proper positioning */
     width: fit-content;
@@ -267,23 +267,24 @@ p {
 
 /* About Heading */
 .about-header h2 {
-    font-size: 40px;
+    font-size: 110px;
     font-weight: 800;
-    color: #00c3ff;
+    color: #00c3ff; /* Default cyan color */
     margin: 0;
-    white-space: nowrap; /* Prevent text from breaking */
+    white-space: nowrap;
+    position: relative;
+    display: inline-block;
+    -webkit-text-stroke: 2px transparent; /* Default no border */
+    transition: color 0.3s ease-in-out, -webkit-text-stroke 0.3s ease-in-out;
 }
 
-
-/* Line Below "About" */
-.about-line {
-    width: 150px;
-    height: 3px;
-    background-color: #414141;
-    margin: 0; /* Remove unwanted margin */
-    position: relative; /* Fix position */
-    top: 3px; /* Adjust this if needed */
+/* Hover Effect */
+.about-header h2:hover {
+    color: #141414; /* Fill color turns black */
+    -webkit-text-stroke: 1.7px #00c3ff; /* Border color turns cyan */
+    cursor: pointer;
 }
+
 .about-content {
     display: flex;
     justify-content: space-between;
@@ -299,8 +300,7 @@ p {
     flex: 1;
     font-size: 1.2rem;
     color: #eaeaea;
-    overflow: hidden;
-    border-right: 2px solid #eaeaea; /* Cursor effect */
+    overflow: hidden; /* Cursor effect */
     white-space: normal;
     display: block;
     
@@ -311,8 +311,7 @@ p {
     flex: 1;
     font-size: 1.2rem;
     color: #cacaca;
-    overflow: hidden;
-    border-right: 2px solid #cacaca; /* Cursor effect */
+    overflow: hidden; /* Cursor effect */
     white-space: normal;
     display: block;
 
@@ -461,23 +460,25 @@ p {
 .timeline-header {
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
     gap: 20px;
     margin-bottom: 40px;
 }
 
 .timeline-header h2 {
-    font-size: 2.5rem;
+    font-size: 110px;
     font-weight: 800;
     color: #00c3ff;
     white-space: nowrap;
+    -webkit-text-stroke: 2px transparent; /* Default no border */
+    transition: color 0.3s ease-in-out, -webkit-text-stroke 0.3s ease-in-out;
 }
 
-.timeline-line {
-    width: 1000px;
-    height: 3px;
-    background-color: #414141;
-    margin-bottom: 15px;
+/* Hover Effect */
+.timeline-header h2:hover {
+    color: #141414; /* Fill color turns black */
+    -webkit-text-stroke: 1.7px #00c3ff; /* Border color turns cyan */
+    cursor: pointer;
 }
 
 /* Timeline Container */
